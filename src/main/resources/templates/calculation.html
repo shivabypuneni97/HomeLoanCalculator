@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+body{
+	background-color: #FFFFF0;
+}
+table {
+	margin-top: 2%;
+	margin-left:auto;
+	margin-right:auto;
+  	font-family: arial, sans-serif;
+  	border-collapse: collapse;
+  	width: 75%;
+}
+
+td, th {
+  border: 5px solid #dddddd;
+  border: 5px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+		
+			<table id="example" class="table table-striped table-primary" >
+				<thead class="ttop"> 
+				    <tr class="table-info">
+				        <th>Month</th>
+				        <th>Loan Balance</th>
+				        <th>EMI</th>
+				        <th>Principal</th>
+				        <th>Monthly Interest</th>
+				        <th>Outstanding Balance</th>
+				    </tr>
+			    </thead>
+			    <tbody>
+				    <tr th:each="loan : ${loans}">
+				        <td class="align-middle" th:text="${loan.month}"></td>
+				        <td class="align-middle" th:text="₹+${loan.loanBalance}"></td>
+				        <td class="align-middle" th:text="₹+${loan.emi}"></td>
+				        <td class="align-middle" th:text="₹+${loan.principal}"></td>
+				        <td class="align-middle" th:text="₹+${loan.monthlyInterest}"></td>
+				        <td class="align-middle" th:text="₹+${loan.outStandingBalance}"></td>
+				    </tr>
+			    </tbody>
+			</table>
+		
+
+</body>
+</html>

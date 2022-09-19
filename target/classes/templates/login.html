@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Loan Calculator</title>
+    <link rel="stylesheet">
+    <style>
+    	
+		form {
+			top: 25%;
+			left: 25%;
+    		position: absolute;
+			width: 50%;
+			border: 1px solid #f1f1f1;
+		}
+		body {
+			 background-image: url("banner-home-loan.jpg");
+			 
+			 background-size: cover;
+			 background-position: center;
+			 height: 500px; 
+			 background-repeat: repeat;
+			  
+			}
+		
+		
+		
+		input[type=number]  {
+		  width: 100%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  box-sizing: border-box;
+		}
+		button {
+			  background-color: #04AA6D;
+			  color: white;
+			  padding: 14px 20px;
+			  margin: 8px 0;
+			  border: none;
+			  cursor: pointer;
+			  width: 100%;
+		}
+    	button:hover {
+  			opacity: 0.8;
+		}
+		.container {
+			
+			margin-right: auto;
+			margin-left: auto;
+			
+			width: 80%;
+  			padding: 10px;
+		}
+		
+    </style>
+
+</head>
+
+<body>
+   <div class="container text-center">
+   
+  
+   
+   	<div>
+	<h1 style="text-align:center">House Loan Calculator</h1>
+	
+	</div>
+	
+	
+	<div >
+	<form class="form" th:action="@{/calculate}" th:object="${index}" method="GET">
+				
+		<div class="container">
+		
+			<label><strong>Loan Amount (₹): </strong></label>
+			<input type="number" th:field="*{loanAmount}" min="50000" max="1000000" placeholder="Loan Amount" required />
+			
+			<label><strong>Interest Rate (%): </strong> </label>
+			<input type="number" th:field="*{interest}" min="1" max="10" step="0.25" placeholder="Interest" required/>
+			
+			<label><strong>Loan Tenure (Y): </strong> </label>
+			<input type="number" min="1" max="10" th:field="*{period}"  placeholder="Years" required/>
+			
+		</div>
+			
+			 <div class="container">
+				<button type="submit" >Calculate</button>
+			</div>
+			
+		
+		</form>
+		</div>
+	</div>
+</body>
+</html>
